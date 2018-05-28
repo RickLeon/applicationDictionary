@@ -20,9 +20,9 @@ addon_info = {
 	"addon_description" : _("""allows creation of application-specific dictionaries.
 Use the shortcut NVDA+shift+p to access the dictionary for the current application."""),
 	# version
-	"addon_version" : "1.0-beta",
+	"addon_version" : "1.1-dev",
 	# Author(s)
-	"addon_author" : u"Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>",
+	"addon_author" : "Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>",
 	# URL for the add-on documentation support
 	"addon_url" : None,
 	# Documentation file name
@@ -34,7 +34,7 @@ import os.path
 
 # Define the python files that are the sources of your add-on.
 # You can use glob expressions here, they will be expanded.
-pythonSources = [os.path.join("addon", "*.py"), os.path.join("addon", "globalPlugins", "applicationDictionary", "*.py")]
+pythonSources = [os.path.join("addon", "*.py"), os.path.join("addon", "globalPlugins", "*.py")]
 
 # Files that contain strings for translation. Usually your python sources
 i18nSources = pythonSources + ["buildVars.py"]

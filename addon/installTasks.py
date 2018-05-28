@@ -1,3 +1,8 @@
+#Application Dictionary addon for NVDA
+#This file is covered by the GNU General Public License.
+#See the file COPYING.txt for more details.
+#Copyright (C) 2018 Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>
+
 import addonHandler
 import gui
 import wx

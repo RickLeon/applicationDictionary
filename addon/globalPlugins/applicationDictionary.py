@@ -1,16 +1,20 @@
-import addonHandler
+#Application Dictionary addon for NVDA
+#This file is covered by the GNU General Public License.
+#See the file COPYING.txt for more details.
+#Copyright (C) 2018 Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>
+
 import api
 import globalPluginHandler
 import gui
 import speechDictHandler
 import os
 from speechDictHandler import speechDictsPath
-
+import addonHandler
+addonHandler.initTranslation()
 try:
 	from globalCommands import SCRCAT_CONFIG
 except:
-	SCRCAT_CONF = None
-
+	SCRCAT_CONFIG = None
 
 def getAppName():
 	return api.getForegroundObject().appModule.appName
@@ -58,7 +62,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			dict.load(dictFilePath)
 			dicts[appName] = dict
 # Translators: title of application dictionary dialog.
-		title = _("Dictionary for %s") % appName
+		title = _("Dictionary for {arg0}").format(arg0=appName)
 		gui.mainFrame._popupSettingsDialog(gui.DictionaryDialog, title, dict)
 	script_editDict.category = SCRCAT_CONFIG
 # Translators: Message presented in input help mode.
