@@ -9,12 +9,12 @@ import gui
 import speechDictHandler
 import os
 from speechDictHandler import speechDictsPath
-
+import addonHandler
+addonHandler.initTranslation()
 try:
 	from globalCommands import SCRCAT_CONFIG
 except:
 	SCRCAT_CONFIG = None
-
 
 def getAppName():
 	return api.getForegroundObject().appModule.appName
