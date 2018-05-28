@@ -62,7 +62,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			dict.load(dictFilePath)
 			dicts[appName] = dict
 # Translators: title of application dictionary dialog.
-		title = _("Dictionary for %s") % appName
+		title = _("Dictionary for {arg0}").format(arg0=appName)
 		gui.mainFrame._popupSettingsDialog(gui.DictionaryDialog, title, dict)
 	script_editDict.category = SCRCAT_CONFIG
 # Translators: Message presented in input help mode.
