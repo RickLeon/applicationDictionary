@@ -1,4 +1,3 @@
-import addonHandler
 import api
 import globalPluginHandler
 import gui
@@ -9,7 +8,7 @@ from speechDictHandler import speechDictsPath
 try:
 	from globalCommands import SCRCAT_CONFIG
 except:
-	SCRCAT_CONF = None
+	SCRCAT_CONFIG = None
 
 
 def getAppName():
