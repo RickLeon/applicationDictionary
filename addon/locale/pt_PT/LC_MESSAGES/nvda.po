@@ -3,43 +3,43 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: applicationDictionary 1.0-beta\n"
+"Project-Id-Version: applicationDictionary 1.1-dev\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
-"POT-Creation-Date: 2018-05-26 16:49+0000\n"
-"PO-Revision-Date: 2018-05-26 14:50-0300\n"
+"POT-Creation-Date: 2018-05-28 09:47+0200\n"
+"PO-Revision-Date: 2018-05-28 09:49+0200\n"
+"Last-Translator: José Manuel Delicado Alcolea <josemanuel.delicado@urjc."
+"es>\n"
+"Language-Team: \n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: NVDA User <email@address.com>\n"
-"Language-Team: \n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.7\n"
 
 #. Translators: the label of a message box dialog.
-#: addon/installTasks.py:13
+#: addon\installTasks.py:13
 msgid ""
 "You have installed an incompatible version of the add-on. Do you want to "
 "uninstall the incompatible version?"
 msgstr ""
-"Uma versão incompatível deste add-on já está instalada. "
-"Você deseja desinstalar a versão incompatível?"
+"Uma versão incompatível deste add-on já está instalada. Você deseja "
+"desinstalar a versão incompatível?"
 
 #. Translators: the title of a message box dialog.
-#: addon/installTasks.py:15
+#: addon\installTasks.py:15
 msgid "Uninstall incompatible add-on"
 msgstr "Desinstalar add-on incompatível"
 
 #. Translators: title of application dictionary dialog.
-#: addon/globalPlugins/applicationDictionary/__init__.py:62
-#, python-format
-msgid "Dictionary for %s"
-msgstr "DicionÃ¡rio para %s"
+#: addon\globalPlugins\applicationDictionary.py:65
+#, python-brace-format
+msgid "Dictionary for {arg0}"
+msgstr "DicionÃ¡rio para {arg0}"
 
 #. Translators: Message presented in input help mode.
-#: addon/globalPlugins/applicationDictionary/__init__.py:66
+#: addon\globalPlugins\applicationDictionary.py:69
 msgid "Shows the application-specific dictionary dialog"
 msgstr "Apresenta o diÃ¡logo do dicionÃ¡rio de aplicaÃ§Ãµes"
 
