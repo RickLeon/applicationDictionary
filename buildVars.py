@@ -20,7 +20,7 @@ addon_info = {
 	"addon_description" : _("""allows creation of application-specific dictionaries.
 Use the shortcut NVDA+shift+p to access the dictionary for the current application."""),
 	# version
-	"addon_version" : "1.1-dev",
+	"addon_version" : "1.2-dev",
 	# Author(s)
 	"addon_author" : "Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>",
 	# URL for the add-on documentation support
