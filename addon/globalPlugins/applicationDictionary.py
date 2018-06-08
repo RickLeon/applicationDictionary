@@ -22,7 +22,9 @@ def getAppName():
 	return (gui.mainFrame.prevFocus or api.getFocusObject()).appModule.appName
 
 def getDictFilePath(appName):
-	return os.path.join(speechDictsPath, appName + ".dic")
+	if not os.path.exists(appDictsPath):
+		os.makedirs(appDictsPath)
+	return os.path.join(appDictsPath, appName + ".dic")
 
 def loadEmptyDicts():
 	return dict([(f[:-4], None) for f in os.listdir(speechDictsPath) if os.path.isfile(os.path.join(speechDictsPath, f)) and f.endswith(".dic")])
@@ -39,6 +41,7 @@ def getDict(appName):
 			dict = dicts[appName]
 	return dict
 
+appDictsPath = os.path.join(speechDictsPath, "appDicts")
 dicts = loadEmptyDicts()
 
 
