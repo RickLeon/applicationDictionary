@@ -29,17 +29,23 @@ def getDictFilePath(appName):
 def loadEmptyDicts():
 	return dict([(f[:-4], None) for f in os.listdir(speechDictsPath) if os.path.isfile(os.path.join(speechDictsPath, f)) and f.endswith(".dic")])
 
+def loadDict(appName):
+		dict = speechDictHandler.SpeechDict()
+		dict.load(getDictFilePath(appName))
+		dicts[appName] = dict
+		return dict
+
 def getDict(appName):
-	dict = None
 	if appName in dicts:
-		dictFilePath = getDictFilePath(appName)
-		if dicts[appName] is None:
-			dict = speechDictHandler.SpeechDict()
-			dict.load(dictFilePath)
-			dicts[appName] = dict
+		dict = dicts[appName]
+		if dict:
+			return dict
 		else:
-			dict = dicts[appName]
-	return dict
+			return loadDict(appName)
+
+def createDict(appName):
+	open(getDictFilePath(appName), "a").close()
+	return loadDict(appName)
 
 appDictsPath = os.path.join(speechDictsPath, "appDicts")
 dicts = loadEmptyDicts()
@@ -58,7 +64,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def event_foreground(self, obj, nextHandler):
 		appName = getAppName()
-		if self.__currentAppName is None or self.__currentAppName != appName:
+		if not self.__currentAppName or self.__currentAppName != appName:
 			self.__currentAppName = appName
 			dict = getDict(appName)
 			self.__setCurrentDict(dict)
@@ -67,12 +73,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_editDict(self, gesture):
 		appName = getAppName()
 		dict = getDict(appName)
-		if dict is None:
-			dictFilePath = getDictFilePath(appName)
-			open(dictFilePath, "a").close()
-			dict = speechDictHandler.SpeechDict()
-			dict.load(dictFilePath)
-			dicts[appName] = dict
+		if not dict:
+			dict = createDict(appName)
 		# Translators: title of application dictionary dialog.
 		title = _("Dictionary for {arg0}").format(arg0=appName)
 		gui.mainFrame._popupSettingsDialog(gui.DictionaryDialog, title, dict)
