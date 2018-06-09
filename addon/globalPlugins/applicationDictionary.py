@@ -16,6 +16,8 @@ try:
 except:
 	SCRCAT_CONFIG = None
 
+# Todo: fix a problem that causes dictionaries not to load sometimes on WUP apps
+# Todo: When in NVDA GUI disable previous app dictionary
 def getAppName():
 	# From NVDA's core
 	return (gui.mainFrame.prevFocus or api.getFocusObject()).appModule.appName
@@ -28,6 +30,7 @@ def getDictFilePath(appName):
 def loadEmptyDicts():
 	return dict([(f[:-4], None) for f in os.listdir(appDictsPath) if os.path.isfile(os.path.join(appDictsPath, f)) and f.endswith(".dic")])
 
+# Todo: unload unused dictionaries after an entry count limit is reached
 def loadDict(appName):
 		dict = speechDictHandler.SpeechDict()
 		dict.load(getDictFilePath(appName))
@@ -53,9 +56,9 @@ dicts = loadEmptyDicts()
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
+		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		self.__currentDict = None
 		self.__currentAppName = None
-		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		self.dictsMenu = gui.mainFrame.sysTrayIcon.preferencesMenu.GetMenuItems()[1].GetSubMenu()
 		# Translators: The label for the menu item to open Application specific speech dictionary dialog.
 		self.appDictDialog = self.dictsMenu.Append(wx.ID_ANY, _("&Application Dictionary..."), _("A dialog where you can set application-specific dictionary by adding dictionary entries to the list"))
@@ -69,6 +72,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self.__setCurrentDict(dict)
 		nextHandler()
 
+# Todo: fix NVDA silence when script_editDict is called inside any NVDA dialog
 	def script_editDict(self, gesture):
 		appName = getAppName()
 		dict = getDict(appName)
@@ -83,10 +87,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	# Temp dictionary usage taken from emoticons add-on
 	def __setCurrentDict(self, dict):
-		if self.__currentDict is not None:
+		if self.__currentDict:
 			for e in self.__currentDict: speechDictHandler.dictionaries["temp"].remove(e)
 		self.__currentDict = dict
-		if self.__currentDict is not None:
+		if self.__currentDict:
 			speechDictHandler.dictionaries["temp"].extend(self.__currentDict)
 
 	__gestures = {
