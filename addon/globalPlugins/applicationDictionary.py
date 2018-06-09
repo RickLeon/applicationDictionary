@@ -9,7 +9,6 @@ import gui
 import wx
 import speechDictHandler
 import os
-from speechDictHandler import speechDictsPath
 import addonHandler
 addonHandler.initTranslation()
 try:
@@ -27,7 +26,7 @@ def getDictFilePath(appName):
 	return os.path.join(appDictsPath, appName + ".dic")
 
 def loadEmptyDicts():
-	return dict([(f[:-4], None) for f in os.listdir(speechDictsPath) if os.path.isfile(os.path.join(speechDictsPath, f)) and f.endswith(".dic")])
+	return dict([(f[:-4], None) for f in os.listdir(appDictsPath) if os.path.isfile(os.path.join(appDictsPath, f)) and f.endswith(".dic")])
 
 def loadDict(appName):
 		dict = speechDictHandler.SpeechDict()
@@ -47,7 +46,7 @@ def createDict(appName):
 	open(getDictFilePath(appName), "a").close()
 	return loadDict(appName)
 
-appDictsPath = os.path.join(speechDictsPath, "appDicts")
+appDictsPath = os.path.join(speechDictHandler.speechDictsPath, "appDicts")
 dicts = loadEmptyDicts()
 
 
