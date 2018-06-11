@@ -19,8 +19,7 @@ except:
 # Todo: fix a problem that causes dictionaries not to load sometimes on WUP apps
 # Todo: When in NVDA GUI disable previous app dictionary
 def getAppName():
-	# From NVDA's core
-	return (gui.mainFrame.prevFocus or api.getFocusObject()).appModule.appName
+	return api.getFocusObject().appModule.appName
 
 def getDictFilePath(appName):
 	if not os.path.exists(appDictsPath):
@@ -74,7 +73,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 # Todo: fix NVDA silence when script_editDict is called inside any NVDA dialog
 	def script_editDict(self, gesture):
-		appName = getAppName()
+		prevFocus = gui.mainFrame.prevFocus
+		appName = prevFocus.appModule.appName if prevFocus else getAppName()
 		dict = getDict(appName)
 		if not dict:
 			dict = createDict(appName)
