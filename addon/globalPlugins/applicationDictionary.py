@@ -63,7 +63,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.appDictDialog = self.dictsMenu.Append(wx.ID_ANY, _("&Application Dictionary..."), _("A dialog where you can set application-specific dictionary by adding dictionary entries to the list"))
 		gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self.script_editDict, self.appDictDialog)
 
-	def event_foreground(self, obj, nextHandler):
+	def event_gainFocus(self, obj, nextHandler):
 		appName = getAppName()
 		if not self.__currentAppName or self.__currentAppName != appName:
 			self.__currentAppName = appName
