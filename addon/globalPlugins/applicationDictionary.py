@@ -3,12 +3,12 @@
 #See the file COPYING.txt for more details.
 #Copyright (C) 2018 Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>
 
+import os
 import api
 import globalPluginHandler
 import gui
 import wx
 import speechDictHandler
-import os
 import addonHandler
 addonHandler.initTranslation()
 try:
@@ -27,15 +27,15 @@ def getDictFilePath(appName):
 	return os.path.join(appDictsPath, appName + ".dic")
 
 def loadEmptyDicts():
-	dirs = os.listdir(appDictsPath) if os.path.isfile(appDictsPath) else []
+	dirs = os.listdir(appDictsPath) if os.path.exists(appDictsPath) else []
 	return dict([(f[:-4], None) for f in dirs if os.path.isfile(os.path.join(appDictsPath, f)) and f.endswith(".dic")])
 
-# Todo: unload unused dictionaries after an entry count limit is reached
 def loadDict(appName):
-		dict = speechDictHandler.SpeechDict()
-		dict.load(getDictFilePath(appName))
-		dicts[appName] = dict
-		return dict
+	ensureEntryCacheSize(appName)
+	dict = speechDictHandler.SpeechDict()
+	dict.load(getDictFilePath(appName))
+	dicts[appName] = dict
+	return dict
 
 def getDict(appName):
 	if appName in dicts:
@@ -49,8 +49,17 @@ def createDict(appName):
 	open(getDictFilePath(appName), "a").close()
 	return loadDict(appName)
 
+def ensureEntryCacheSize(appName):
+	entries = sorted([(e[0], len(e[1])) for e in dicts.items() if e[1] is not None and e[0] != appName], key = lambda e: e[1])
+	acc = 0
+	for e in entries:
+		acc = acc + e[1]
+		if acc >= entryCacheSize:
+					dicts[e[0]] = None
+
 appDictsPath = os.path.abspath(os.path.join(speechDictHandler.speechDictsPath, "appDicts"))
 dicts = loadEmptyDicts()
+entryCacheSize = 2000
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
