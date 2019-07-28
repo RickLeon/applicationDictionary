@@ -27,6 +27,12 @@ Use the shortcut NVDA+shift+p to access the dictionary for the current applicati
 	"addon_url" : None,
 	# Documentation file name
 	"addon_docFileName" : "readme.html",
+	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
+	"addon_minimumNVDAVersion" : "2019.1",
+	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
+	"addon_lastTestedNVDAVersion" : "2019.3",
+	# Add-on update channel (default is stable or None)
+	"addon_updateChannel" : None,
 }
 
 
