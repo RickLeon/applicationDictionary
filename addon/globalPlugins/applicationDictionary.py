@@ -27,7 +27,8 @@ def getDictFilePath(appName):
 	return os.path.join(appDictsPath, appName + ".dic")
 
 def loadEmptyDicts():
-	return dict([(f[:-4], None) for f in os.listdir(appDictsPath) if os.path.isfile(os.path.join(appDictsPath, f)) and f.endswith(".dic")])
+	dirs = os.listdir(appDictsPath) if os.path.isfile(appDictsPath) else []
+	return dict([(f[:-4], None) for f in dirs if os.path.isfile(os.path.join(appDictsPath, f)) and f.endswith(".dic")])
 
 # Todo: unload unused dictionaries after an entry count limit is reached
 def loadDict(appName):
@@ -48,7 +49,7 @@ def createDict(appName):
 	open(getDictFilePath(appName), "a").close()
 	return loadDict(appName)
 
-appDictsPath = os.path.join(speechDictHandler.speechDictsPath, "appDicts")
+appDictsPath = os.path.abspath(os.path.join(speechDictHandler.speechDictsPath, "appDicts"))
 dicts = loadEmptyDicts()
 
 
