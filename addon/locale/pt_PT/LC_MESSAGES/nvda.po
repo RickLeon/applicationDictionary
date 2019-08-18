@@ -4,20 +4,20 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: applicationDictionary 1.1-dev\n"
-"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
-"POT-Creation-Date: 2018-05-28 09:47+0200\n"
-"PO-Revision-Date: 2018-05-29 00:25-0300\n"
-"Last-Translator: NVDA User <email@address.com>\n"
+"Project-Id-Version: 'applicationDictionary' '1.3-dev'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
+"POT-Creation-Date: 2018-07-03 17:03+0200\n"
+"PO-Revision-Date: 2019-08-16 15:42+0200\n"
+"Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #. Translators: the label of a message box dialog.
-#: addon\installTasks.py:13
+#: addon\installTasks.py:18
 msgid ""
 "You have installed an incompatible version of the add-on. Do you want to "
 "uninstall the incompatible version?"
@@ -26,18 +26,31 @@ msgstr ""
 "desinstalar a versão incompatível?"
 
 #. Translators: the title of a message box dialog.
-#: addon\installTasks.py:15
+#: addon\installTasks.py:20
 msgid "Uninstall incompatible add-on"
 msgstr "Desinstalar add-on incompatível"
 
+#. Translators: The label for the menu item to open Application specific speech dictionary dialog.
+#: addon\globalPlugins\applicationDictionary.py:63
+msgid "&Application Dictionary..."
+msgstr "&Dicionário de Aplicações..."
+
+#: addon\globalPlugins\applicationDictionary.py:63
+msgid ""
+"A dialog where you can set application-specific dictionary by adding "
+"dictionary entries to the list"
+msgstr ""
+"Uma caixa de diálogo na qual você pode definir o dicionário específico "
+"de aplicações adicionando entradas de dicionário à lista"
+
 #. Translators: title of application dictionary dialog.
-#: addon\globalPlugins\applicationDictionary.py:65
+#: addon\globalPlugins\applicationDictionary.py:82
 #, python-brace-format
 msgid "Dictionary for {arg0}"
 msgstr "Dicionário para {arg0}"
 
 #. Translators: Message presented in input help mode.
-#: addon\globalPlugins\applicationDictionary.py:69
+#: addon\globalPlugins\applicationDictionary.py:86
 msgid "Shows the application-specific dictionary dialog"
 msgstr "Apresenta o diálogo do dicionário de aplicações"
 
