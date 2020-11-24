@@ -20,7 +20,7 @@ addon_info = {
 	"addon_description" : _("""allows creation of application-specific dictionaries.
 Use the shortcut NVDA+shift+p to access the dictionary for the current application."""),
 	# version
-	"addon_version" : "1.3-dev",
+	"addon_version" : "1.4-dev",
 	# Author(s)
 	"addon_author" : "Ricardo Leonarczyk <ricardo.leonarczyk95@gmail.com>",
 	# URL for the add-on documentation support
@@ -30,7 +30,7 @@ Use the shortcut NVDA+shift+p to access the dictionary for the current applicati
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion" : "2019.1",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion" : "2019.3",
+	"addon_lastTestedNVDAVersion" : "2020.4",
 	# Add-on update channel (default is stable or None)
 	"addon_updateChannel" : None,
 }
