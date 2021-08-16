@@ -1,0 +1,62 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: applicationDictionary 1.3\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2021-08-17 02:16+0300\n"
+"PO-Revision-Date: 2021-08-17 02:19+0300\n"
+"Last-Translator: Alex Yeshanu <eshanuap@gmail.com>\n"
+"Language-Team: Alex Yeshanu <eshanuap@gmail.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: globalPlugins\n"
+"X-Poedit-SearchPath-1: installTasks.py\n"
+
+#: globalPlugins/applicationDictionary.py:85
+msgid "&Application Dictionary..."
+msgstr "&Словарь приложений..."
+
+#: globalPlugins/applicationDictionary.py:85
+msgid ""
+"A dialog where you can set application-specific dictionary by adding "
+"dictionary entries to the list"
+msgstr ""
+"Диалог, в котором вы можете установить словарь для конкретного приложения, "
+"добавив словарные статьи в список"
+
+#: globalPlugins/applicationDictionary.py:104
+#, python-brace-format
+msgid "Dictionary for {arg0}"
+msgstr "Словарь для {arg0}"
+
+#: globalPlugins/applicationDictionary.py:108
+msgid "Shows the application-specific dictionary dialog"
+msgstr "Показывает диалоговое окно словаря для конкретного приложения"
+
+#: installTasks.py:18
+msgid ""
+"You have installed an incompatible version of the add-on. Do you want to "
+"uninstall the incompatible version?"
+msgstr "Вы установили несовместимую версию дополнения. Хотите её удалить?"
+
+#: installTasks.py:20
+msgid "Uninstall incompatible add-on"
+msgstr "Удалить несовместимое дополнение"
+
+#~ msgid "Application dictionary"
+#~ msgstr "Словарь приложений"
+
+#~ msgid ""
+#~ "Allows creation of application-specific dictionaries. Use the command "
+#~ "\"NVDA+Shift+p\" to access the dictionary for the current application."
+#~ msgstr ""
+#~ "Позволяет создавать словари для конкретных приложений. Используйте "
+#~ "команду NVDA+Shift+p для доступа к словарю текущего приложения."
